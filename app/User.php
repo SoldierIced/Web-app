@@ -29,7 +29,7 @@ class User extends Authenticatable
     // ];
 
     public function nacionalidad(){
-        return $this->belongsTo('App\Nacionalidades','nacionalidad_id','id');
+        return $this->belongsTo('App\Nacionalidad','nacionalidad_id','id');
     }
     /**
      * The attributes that should be cast to native types.

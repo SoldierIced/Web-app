@@ -22,4 +22,12 @@ Route::post('users', 'UsersController@store');
 Route::put('users/{id}', 'UsersController@update');
 Route::delete('users/{id}', 'UsersController@delete');
 
+
+Route::post('asignarnacionalidad', 'UsersController@asignar_nacionalidad');
+
+//nacionalidades
+
+Route::post('nacionalidades', 'NacionalidesController@store');
+Route::get('nacionalidades', 'NacionalidesController@index');
+Route::get('nacionalidades/{id}', 'NacionalidesController@show');
 });

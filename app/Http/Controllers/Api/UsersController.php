@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\User;
+use App\Nacionalidad;
 
 class UsersController extends Controller
 {
@@ -37,6 +38,35 @@ class UsersController extends Controller
         return User::find($id);
     }
 
+    public function asignar_nacionalidad(Request $req){
+    $user =User::find($req->user);
+    $nacionalidad =Nacionalidad::find($req->nacionalidad);
+    if($user != null && $nacionalidad != null){
+        $user->nacionalidad_id = $nacionalidad->id;
+        $user->save();
+        $user->nacionalidad;
+        return response()->json([
+            'mensaje' => "Nacionalidad agregada correctamente",
+            'user'=>$user
+        ], 200);
+    }
+    else {
+        $error=[];
+        if($user == null){
+            $error[]="Usuario no encontrado";
+        }
+        if($nacionalidad == null){
+            $error[]="Nacionalidad no encontrada";
+        }
+        return response()->json([
+            'errores' =>$error
+        ], 404);
+    }
+
+
+    }
+
+
     public function store(Request $request)
     {
         $error= $this->validator($request);
@@ -50,7 +80,6 @@ class UsersController extends Controller
         return response()->json([
             'errores' => $error
         ], 404);
-         ;
 
     }
 

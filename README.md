@@ -8,7 +8,7 @@
 
 4- updateUser (PUT) -- listo
 
-5- a cada usuario se le asocia una nacionalidad, la cual permitirá saber cuántos usuarios hay de cada país (generar entre 20 y 40 usuarios y un máximo de 6 nacionalidades).
+5- a cada usuario se le asocia una nacionalidad, la cual permitirá saber cuántos usuarios hay de cada país (generar entre 20 y 40 usuarios y un máximo de 6 nacionalidades). -- parte api listo,
 
 6- adicional al ítem anterior, levantar una vista que consuma dichos servicios y presente lo siguiente:
 
