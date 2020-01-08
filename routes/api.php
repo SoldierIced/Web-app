@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 Route::group(['namespace' => 'Api', 'middleware' => 'api'], function () {
 Route::get('users', 'UsersController@index');
 Route::get('users/{id}', 'UsersController@show');
+
 Route::post('users', 'UsersController@store');
 Route::put('users/{id}', 'UsersController@update');
 Route::delete('users/{id}', 'UsersController@delete');

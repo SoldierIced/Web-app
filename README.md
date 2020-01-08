@@ -14,5 +14,5 @@
 
 Panel de navegación.
 Listado de usuarios ingresados.
-
+Formulario para la búsqueda, alta, baja y modificación de usuarios.
  

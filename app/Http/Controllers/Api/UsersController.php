@@ -100,7 +100,7 @@ class UsersController extends Controller
         return $User;
     }
 
-    public function delete(Request $request, $id)
+    public function delete( $id)
     {
         $User = User::findOrFail($id);
         $aux=$User;
@@ -111,4 +111,7 @@ class UsersController extends Controller
             'user'=>$aux
         ], 200);
     }
+
+
+
 }

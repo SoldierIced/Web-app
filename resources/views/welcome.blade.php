@@ -3,98 +3,64 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link rel="apple-touch-icon" sizes="76x76" href="{{asset('/img/apple-icon.png')}}">
+        <link rel="icon" type="image/png" href="{{asset('/img/favicon.png')}}">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>
+          Web-App
+        </title>
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+        <!--     Fonts and icons     -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+        <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
+        <!-- CSS Files -->
+        <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet" />
+        <link href="{{asset('/css/paper-dashboard.css?v=2.0.0')}}" rel="stylesheet" />
+        <link href="{{asset('/demo/demo.css')}}" rel="stylesheet" />
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+    <body class="">
+        @include("layouts.sidebar")
+         <div class="header text-center">
+            <h2 class="title">Notifications</h2>
+            <p class="category">Handcrafted by our friend <a target="_blank" href="https://github.com/mouse0270">Robert McIntosh</a>. Please checkout the <a href="http://bootstrap-notify.remabledesigns.com/" target="_blank">full documentation.</a></p>
         </div>
-    </body>
+
+      </div> -->
+            <div class="content">
+              <div class="row">
+                @yield('content')
+
+              </div>
+            </div>
+        @include('layouts.footer')
+          </div>
+        </div>
+        <!--   Core JS Files   -->
+        <script src="{{asset('/js/core/jquery.min.js')}}"></script>
+        <script src="{{asset('/js/core/popper.min.js')}}"></script>
+        <script src="{{asset('/js/core/bootstrap.min.js')}}"></script>
+        <script src="{{asset('/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
+        <script src="{{asset('/js/plugins/chartjs.min.js')}}"></script>
+        <!--  Notifications Plugin    -->
+        <script src="{{asset('/js/plugins/bootstrap-notify.js')}}"></script>
+        <script src="{{asset('/js/paper-dashboard.min.js?v=2.0.0')}}" type="text/javascript"></script>
+
+        <script src="{{asset('/demo/demo.js')}}"></script>
+
+
+        <script type="text/javascript">
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                @if(Session::has('msj'))
+                demo.showNotification('success','{{Session::pull('msj')}}')
+                @endif
+                  @if(Session::has('err'))
+               demo.showNotification('warning','{{Session::pull('err')}}')
+                  @endif
+                @yield('extraJS')
+        </script>
+      </body>
 </html>
