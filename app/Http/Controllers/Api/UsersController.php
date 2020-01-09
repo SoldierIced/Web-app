@@ -70,11 +70,18 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $error= $this->validator($request);
-        if(count($error)==0)
-        return response()->json([
-            'mensaje' => "Usuario dado de alta correctamente",
-            'user'=>User::create($request->all())
-        ], 200);
+        if(count($error)==0){
+
+            $user = User::create($request->all());
+            if(isset($request->nacionalidad)){
+                $user->nacionalidad_id=$request->nacionalidad;
+                $user->save();
+            }
+            return response()->json([
+                'mensaje' => "Usuario dado de alta correctamente",
+                'user'=>$user
+            ], 200);
+        }
 
         else
         return response()->json([

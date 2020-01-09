@@ -29,6 +29,23 @@ class UsersController extends Controller
 
 
     }
+    public function new(Request $re){
+        $api = new api();
+        $data =$api->store($re);
+        if(isset($data->getData()->mensaje)){
+            Session::put('msj',$data->getData()->mensaje);
+        }
+        else {
+            $errores = $data->getData()->errores;
+            $aux="";
+            foreach($errores as $err){
+                $aux=$err.'<br>';
+            }
+            Session::put('err',$aux);
+
+        }
+        return redirect()->route('users');
+    }
     public function save(Request $re){
         $api = new api();
         $data =$api->update($re,$re->id);
@@ -40,7 +57,7 @@ class UsersController extends Controller
             $errores = $data->getData()->errores;
             $aux="";
             foreach($errores as $err){
-                $aux=$err.'<br>';
+                $aux=$err.', ';
             }
             Session::put('err',$aux);
         }

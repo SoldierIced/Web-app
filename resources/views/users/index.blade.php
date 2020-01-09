@@ -9,6 +9,9 @@ Usuarios
         <h5 class="card-title">Desde aqui podra ver, editar y eliminar los usuarios</h5>
       </div>
       <div class="card-body">
+        <button type="button" class="btn btn-info " style="float:right" data-toggle="modal" data-target="#usernew">Nuevo Usuario</button>
+        @include('users.nuevo')
+
         <table class="table table-white">
           <thead class="thead-darl">
             <tr>

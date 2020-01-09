@@ -21,6 +21,7 @@ Route::get('home', function () {
 
 //user routes
 Route::get('users', 'UsersController@index')->name('users');
+Route::post('users_nuevo', 'UsersController@new')->name('users_nuevo');
 Route::get('users/delete/{id}', 'UsersController@delete')->name('users.delete');
 Route::post('users_save', 'UsersController@save')->name('users_save');
 ////////////////
