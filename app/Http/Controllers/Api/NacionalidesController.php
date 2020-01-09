@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Nacionalidad;
+use App\User;
 
 class NacionalidesController extends Controller
 {
@@ -27,6 +28,21 @@ class NacionalidesController extends Controller
     public function index()
     {
         return Nacionalidad::all();
+    }
+    public function get_users($user)
+    {
+        $user =User::find($user);
+        $nacionalidades= Nacionalidad::all();
+        foreach($nacionalidades as $nac){
+
+            if($nac->id== $user->nacionalidad->id){
+                $nac->select=true;
+            }
+            else
+            $nac->select=false;
+        }
+        return
+            $nacionalidades;
     }
 
     public function show($id)

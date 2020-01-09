@@ -12,8 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+Route::get('home', function () {
+    return view('home');
+})->name('home');
 Route::get('users', 'UsersController@index')->name('users');
 Route::get('users/delete/{id}', 'UsersController@delete')->name('users.delete');
-
+Route::post('users_save', 'UsersController@save')->name('users_save');

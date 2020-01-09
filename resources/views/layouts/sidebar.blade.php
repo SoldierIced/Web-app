@@ -1,6 +1,6 @@
 <div class="wrapper ">
     <div class="sidebar" data-color="blue" data-active-color="danger">
-     
+
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
           <div class="logo-image-small">
@@ -16,13 +16,19 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-            
+            <li @if (Route::getCurrentRoute()->uri == 'home' || Route::getCurrentRoute()->uri=="/"  )) class="active " @endif>
+                <a href="{{route('home')}}">
+                    <i class="nc-icon nc-single-02"></i>
+                  <p>Home</p>
+                </a>
+              </li>
           <li @if (Route::getCurrentRoute()->uri == 'users') class="active " @endif>
             <a href="{{route('users')}}">
                 <i class="nc-icon nc-single-02"></i>
               <p>Usuarios</p>
             </a>
           </li>
+
         </ul>
       </div>
     </div>

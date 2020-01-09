@@ -17,6 +17,8 @@
         <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet" />
         <link href="{{asset('/css/paper-dashboard.css?v=2.0.0')}}" rel="stylesheet" />
         <link href="{{asset('/demo/demo.css')}}" rel="stylesheet" />
+        <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+
     </head>
     <body class="">
         @include("layouts.sidebar")
@@ -46,7 +48,7 @@
         <script src="{{asset('/js/paper-dashboard.min.js?v=2.0.0')}}" type="text/javascript"></script>
 
         <script src="{{asset('/demo/demo.js')}}"></script>
-
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
         <script type="text/javascript">
                 $.ajaxSetup({

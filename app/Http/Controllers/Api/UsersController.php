@@ -88,7 +88,7 @@ class UsersController extends Controller
 
         $User = User::findOrFail($id);
         if($request->email != $User){
-            $duplicado = User::where('email',$request->email)->first();
+            $duplicado = User::where('email',$request->email)->where('id','!=',$id)->first();
             if($duplicado!=null){
                 return response()->json([
                     'errores' => 'Email en uso'
@@ -96,8 +96,14 @@ class UsersController extends Controller
             }
         }
         $User->update($request->all());
+        if(isset($request->nacionalidad)){
 
-        return $User;
+            $User->nacionalidad_id=$request->nacionalidad;
+            $User->save();
+        }
+        return response()->json([
+            'mensaje' => 'Usuario actualizado correctamente.'
+        ], 200);
     }
 
     public function delete( $id)
