@@ -49,7 +49,7 @@ Version de PHP > 7.2
 
 _Primero tienen que descargar el repositorio una vez con el repositorio:_
 
-_Configurar archivo .ENV_
+_Agregar el archivo .ENV _
 
 ```
 Se tendra que configurar el acceso a la base de datos 
