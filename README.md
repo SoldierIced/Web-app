@@ -26,10 +26,7 @@ _Desarrollar una web-app basada en Laravel que responda a los siguientes servici
 5- a cada usuario se le asocia una nacionalidad, la cual permitirá saber cuántos usuarios hay de cada país (generar entre 20 y 40 usuarios y un máximo de 6 nacionalidades). -- parte api listo,
 ```
 
-```
-
 _Adicional al ítem anterior, levantar una vista que consuma dichos servicios y presente lo siguiente._
-
 ```
 Panel de navegación.
 Listado de usuarios ingresados.
