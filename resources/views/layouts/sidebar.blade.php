@@ -2,12 +2,12 @@
     <div class="sidebar" data-color="blue" data-active-color="danger">
 
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="{{route('home')}}" class="simple-text logo-mini">
           <div class="logo-image-small">
             <img src="{{asset('/img/logo.png')}}">
           </div>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="{{route('home')}}" class="simple-text logo-normal">
           Web-App
           <!-- <div class="logo-image-big">
             <img src="{{asset('/img/logo-big.png')}}">
@@ -26,6 +26,12 @@
             <a href="{{route('users')}}">
                 <i class="nc-icon nc-single-02"></i>
               <p>Usuarios</p>
+            </a>
+          </li>
+          <li @if (Route::getCurrentRoute()->uri == 'nacionalidades') class="active " @endif>
+            <a href="{{route('nacionalidades')}}">
+                <i class="nc-icon nc-single-02"></i>
+              <p>Nacionalidades</p>
             </a>
           </li>
 

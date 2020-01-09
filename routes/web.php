@@ -17,6 +17,19 @@ Route::get('/', function () {
 Route::get('home', function () {
     return view('home');
 })->name('home');
+
+
+//user routes
 Route::get('users', 'UsersController@index')->name('users');
 Route::get('users/delete/{id}', 'UsersController@delete')->name('users.delete');
 Route::post('users_save', 'UsersController@save')->name('users_save');
+////////////////
+
+//nacionalidades
+Route::get('nacionalidades', 'NacionalidadesController@index')->name('nacionalidades');
+Route::get('nacionalidades/delete/{id}', 'NacionalidadesController@delete')->name('nacionalidades.delete');
+Route::post('nacionalidades_save', 'NacionalidadesController@save')->name('nacionalidades_save');
+
+////////////////
+
+

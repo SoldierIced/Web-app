@@ -19,12 +19,22 @@ class NacionalidesController extends Controller
         }
         else {
             return response()->json([
-                'errores' => 'No se permiten nacionalidad con la descripcion vacia'
+                'errores' => 'No se permite una nacionalidad con la descripcion vacia'
             ], 404);
         }
 
     }
+    public function delete( $id)
+    {
+        $nacionalidad = Nacionalidad::findOrFail($id);
+        $aux=$nacionalidad;
+        $nacionalidad->delete();
 
+        return response()->json([
+            'mensaje' => "Nacionalidad borrada correctamente",
+            'user'=>$nacionalidad
+        ], 200);
+    }
     public function index()
     {
         return Nacionalidad::all();
@@ -48,5 +58,19 @@ class NacionalidesController extends Controller
     public function show($id)
     {
         return Nacionalidad::find($id);
+    }
+
+     public function update(Request $request, $id)
+    {
+        if($request->descripcion==""){
+            return response()->json([
+            'errores' => 'No se permite una nacionalidad con la descripcion vacia'
+            ], 404);
+        }
+        $nacionalidades = Nacionalidad::findOrFail($id);
+        $nacionalidades->update($request->all());
+        return response()->json([
+            'mensaje' => 'Nacionalidad actualizada correctamente.'
+        ], 200);
     }
 }
