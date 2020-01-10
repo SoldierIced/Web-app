@@ -48,8 +48,8 @@ class UsersController extends Controller
     }
     public function save(Request $re){
         $api = new api();
+        // dd($re->all());
         $data =$api->update($re,$re->id);
-        // dd($data);
         if(isset($data->getData()->mensaje)){
             Session::put('msj',$data->getData()->mensaje);
         }

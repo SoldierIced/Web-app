@@ -5,7 +5,7 @@
             <meta name="csrf-token" content="{{ csrf_token() }}">
             {{ csrf_field() }}
             <div class="modal-content">
-                <input class="form-control" type="text" name="id" id="edit_user"  value="" hidden>
+                <input class="form-control" type="text" name="id" id=""  value="" hidden>
 
                 <div class="modal-header">
                     <h5 class="modal-title">Nuevo Usuario</h5>
